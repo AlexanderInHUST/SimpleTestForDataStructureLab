@@ -1,0 +1,13 @@
+CXX			= g++
+GTEST_DIR	= /Users/tangyifeng/googletest/googletest
+SRC_FILE	= linear_list_unit_test.cpp
+CXX_FLAG 	= -std=c++11 -pthread
+GTEST_L		= /Users/tangyifeng/googletest/googletest/make
+
+test:
+	$(CXX) $(TF) $(CXX_FLAG) -c -o test.o
+	$(CXX) -DSP=$(SP) -isystem $(GTEST_DIR)/include $(CXX_FLAG) $(SRC_FILE) -c -o src.o
+	$(CXX) $(GTEST_L)/gtest-all.o test.o src.o -o test
+
+clean:
+	rm -rf *.o test *.gch
